@@ -1,0 +1,55 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(135deg, #f5af19, #f12711);
+    color: #fff;
+    height: 100vh;
+    justify-content: center;
+}
+
+h1 {
+    color: #fff;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#myMap {
+    height: 600px;
+    width: 80%;
+    max-width: 1000px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 2px solid #ccc;
+    transition: all 0.3s ease-in-out;
+}
+
+#myMap:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.myCustomPopup .leaflet-popup-content-wrapper {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+}
+
+.myCustomPopup .leaflet-popup-tip-container {
+    display: none;
+}
+
+.leaflet-popup-content {
+    font-family: 'Arial', sans-serif;
+    color: #555;
+    text-align: center;
+}
+
+.leaflet-popup-content strong {
+    color: #333;
+    font-size: 16px;
+}

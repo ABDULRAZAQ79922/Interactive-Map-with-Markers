@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Map with Markers</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>My Beautiful Interactive Map</h1>
+    <div id="myMap"></div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        var myMap = L.map('myMap').setView([51.505, -0.09], 13);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(myMap);
+
+        function myCreateIcon(iconUrl) {
+            return L.icon({
+                iconUrl: iconUrl,
+                iconSize: [38, 38], 
+                iconAnchor: [22, 38], 
+                popupAnchor: [-3, -38] 
+            });
+        }
+
+        var myMarkers = [
+            { coords: [51.505, -0.09], title: 'Location 1', icon: 'marker.png' },
+            { coords: [51.515, -0.1], title: 'Location 2', icon: 'marker.png' },
+            { coords: [51.525, -0.11], title: 'Location 3', icon: 'marker.png' }
+        ];
+
+        myMarkers.forEach(marker => {
+            L.marker(marker.coords, { icon: myCreateIcon(marker.icon) })
+                .addTo(myMap)
+                .bindPopup(`<div class="myCustomPopup"><strong>${marker.title}</strong></div>`)
+                .openPopup();
+        });
+    </script>
+</body>
+</html>
